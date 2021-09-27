@@ -1,7 +1,7 @@
 <?php
 include('templates/header.php')
 ?>
-            <div class="row nav-menu">
+            <div class="row nav-menu m-4">
                 <div class="row">  
                   <div class="col-md">
                     

@@ -4,7 +4,7 @@ include('templates-admin/header.php')
             <div class="row nav-menu">
                 <div class="row">  
                   <div class="col-md">
-                    <a class="btn btn-primary m-2" href="them.php" role="button">Thêm mới</a>
+                    <a class="btn btn-primary m-3" href="them.php" role="button">Thêm mới</a>
                     
                       <table class="table table-success table-striped">
                           <thead>

@@ -9,69 +9,57 @@ include('templates-admin/header.php');
         </div>
 
   <!-- sửa -->
-        <div class="container">
-            <div class="col-md-5 mx-auto">
-                <form action="" method="POST">
-                    <table class="tbl-30">
-                        <tr>
-                            <td>Họ và tên: </td>
-                            <td>
-                                <input type="text" name="hoTen" placeholder="Nhập Họ và tên">
-                            </td>
-                        </tr>
+        <div class="container col-md-5 mx-auto">
+            <form action="process-add.php" method="POST">
+                <div class="row mb-1">
+                    <label for="exampleInputEmail1" class="form-label">Họ Tên</label>
+                    <input type="text" class="form-control form-select-sm" id="txthoten" name="txthoten" aria-describedby="emailHelp">
+                </div>
+                <div class="row mb-1">
+                    <label for="exampleInputPassword1" class="form-label">Chức Vụ</label>
+                    <input type="text" class="form-control form-select-sm" id="txtchucvu" name="txtchucvu">
+                </div>
+                <div class="row mb-1">
+                    <label for="exampleInputPassword1" class="form-label">máy bàn</label>
+                    <input type="tel" class="form-control form-select-sm" id="txtmayban" name="txtmayban">
+                </div>
+                <div class="row mb-1">
+                    <label for="exampleInputPassword1" class="form-label">Email</label>
+                    <input type="email" class="form-control form-select-sm" id="txtemail" name="txtemail">
+                </div>
+                <div class="row mb-1">
+                    <label for="exampleInputPassword1" class="form-label">Số di động</label>
+                    <input type="tel" class="form-control form-select-sm" id="sodidong" name="sodidong">
+                </div>
+                <div class="row mb-1 ">
+                    <label for="exampleInputPassword1" class="form-label">Tên Đơn Vị</label>
+                    <select class="form-select form-select-sm" name="sltMaDV" id="sltMaDV">
+                       <?php
+                            //kết nối server
+                            require('../config/constants.php');
 
-                        <tr>
-                            <td>Chức vụ: </td>
-                            <td>
-                                <input type="text" name="chucvu" placeholder="Nhập chức vụ">
-                            </td>
-                        </tr>
+                            //truy ván đữ liệu
+                            $sql = "SELECT * FROM db_donvi";
+                            $result = mysqli_query($conn,$sql);
 
-                        <tr>
-                            <td>Email: </td>
-                            <td>
-                                <input type="email" name="email" placeholder="Nhập Email">
-                            </td>
-                        </tr>
+                            //xử lý kết quả
+                            if(mysqli_num_rows($result)>0){
+                                while($row = mysqli_fetch_assoc($result)){
+                                    echo '<option value = "'.$row['madv'].'">'.$row['tendv'].'</option>';
+                                }
+                            }
 
-                        <tr>
-                            <td>Số Điện Thoại: </td>
-                            <td>
-                                <input type="tel" name="sdt" placeholder="Nhập số điện thoại">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Tên đơn vị: </td>
-                            <td>
-                                <input type="text" name="tenDonVi" placeholder="Nhập tên đơn vị">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="2">
-                                <input type="submit" name="submit" value="Add" class="btn btn-secondary">
-                            </td>
-                        </tr>
-
-                    </table>
-
-                </form>
-            </div>
+                            //đóng kết nối
+                            mysqli_close($conn);
+                       ?>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-info" name="submit">Submit</button>
+            </form> 
+           
         </div>    
-    <?php
-        if(isset($_POST['submit']))
-        {
-            $sql = "INSERT INTO db_nhanvien SET 
-                tennv='$hoTen',
-                chucvu='$chucvu',
-                email='$email',
-                sdt='$sodidong',
-                tenDonVi='$tendv'
-            ";
-            $res = mysqli_query($conn, $sql) or die(mysqli_error());
-        }
-    ?>
+    
 
     </div>
 </div>
