@@ -4,6 +4,13 @@ include('templates-admin/header.php');
 ?>
 
 
+<?php 
+    session_start();
+    $_SESSION['manv'] = $_GET['manv'];
+  
+
+?>
+
 
 <div class="main-content">
     <div class="wrapper">
@@ -11,10 +18,27 @@ include('templates-admin/header.php');
             <h2>Sửa</h2>
         </div>
 
-  <!-- sửa -->
+        <!-- sửa -->
         <div class="container">
-            
-            <form action="process-update.php" method = "GET">
+            <?php
+            #connect
+  
+
+            #b2; lay ma nv
+                if(isset($_GET['manv']))
+                {
+                    $manv = $_GET['manv'];
+
+            #b3: select trong bang database
+                    $sql= "SELECT * FROM db_nhanvien WHERE manv='$manv'";
+                    $query= mysqli_query($conn,$sql);
+
+                    #lấy ra 1 dongf
+                    $row= mysqli_fetch_assoc($query);
+                }
+            ?>
+
+            <form action="process-update.php" METHOD="GET">
                 <div class="col-md-5 mx-auto">
                     <div class="input-group mb-2">
                         <span class="input-group-text" id="basic-addon1">Họ và tên</span>
@@ -23,16 +47,11 @@ include('templates-admin/header.php');
                     </div>
 
                     <div class="input-group mb-2">
-                        <span class="input-group-text" id="basic-addon1">Chức Vụ</span>
+                        <span class="input-group-text" >Chức Vụ</span>
                         <input type="text" class="form-control" name= "txtchucvu" placeholder="Username"
                             value="<?php echo $row['chucvu']; ?>">
                     </div>
                     
-                    <div class="input-group mb-2"> 
-                        <span class="input-group-text" id="basic-addon2">Máy bàn</span>
-                        <input type="tel" class="form-control" name="mayban" placeholder="Enter Telephone" 
-                            value="<?php echo $row['mayban']; ?>">              
-                    </div>
 
                     <div class="input-group mb-2"> 
                         <span class="input-group-text" id="basic-addon2">Email</span>
@@ -51,7 +70,7 @@ include('templates-admin/header.php');
                         <select class="form-select form-select-sm" name="sltMaDV" id="sltMaDV">
                         <?php
                                 //kết nối server
-                                require('../config/constants.php');
+                                
 
                                 //truy ván đữ liệu
                                 $sql = "SELECT * FROM db_donvi";
@@ -70,6 +89,7 @@ include('templates-admin/header.php');
                         </select>
                     </div>
                     <button type="submit" class="btn btn-info" name="update">Update</button>
+     
                 </div>
             </form>
            

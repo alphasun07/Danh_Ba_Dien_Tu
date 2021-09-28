@@ -13,7 +13,7 @@ include('templates-admin/header.php');
             <form action="process-add.php" method="POST">
                 <div class="row mb-1">
                     <label for="exampleInputEmail1" class="form-label">Họ Tên</label>
-                    <input type="text" class="form-control form-select-sm" id="txthoten" name="txthoten" aria-describedby="emailHelp">
+                    <input type="text" class="form-control form-select-sm" id="txthoten" name="txthoten">
                 </div>
                 <div class="row mb-1">
                     <label for="exampleInputPassword1" class="form-label">Chức Vụ</label>
@@ -58,12 +58,9 @@ include('templates-admin/header.php');
                 <button type="submit" class="btn btn-info" name="submit">Submit</button>
             </form> 
            
-        </div>    
-    
-
+        </div>        
     </div>
 </div>
-
 <?php
     include('templates-admin/footer.php');
 ?>
