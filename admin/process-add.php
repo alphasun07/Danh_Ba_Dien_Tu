@@ -18,24 +18,25 @@
         tennv = '$tenNV',
         chucvu = '$chucvu',
         mayban = '$mayban',
-        email = '$email,
+        email = '$email',
         sodidong = '$sodidong',
         madv = '$madv' ";
  
-        $query = mysqli_query($conn,$sql); 
-        echo $sql."<br>";
+        $query = mysqli_query($conn,$sql) or die(mysqli_error());; 
 
         //4. Check whether the (Query is Executed) data is inserted or not and display appropriate message
-        if(mysqli_query($conn,$sql)==TRUE)
+        if($query==TRUE )
         {
-         
-            echo "thnahf công";
+            $_SESSION['add']="<div class='success'>Thêm nhân viên thành công.</div>";
+
+            header('location:' .SITEURL. 'admin/index.php');
         }
         else
         {
-            echo " thất bại";
+            $_SESSION['add']="<div class='success'>Thêm nhân viên thất bại.</div>";
+            header('location:' .SITEURL. 'admin/index.php');
+
         }
 
-        mysqli_close($conn);
     }
 ?>

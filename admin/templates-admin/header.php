@@ -20,8 +20,8 @@ include('../config/constants.php')
               <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                   <div class="container-fluid">
                     <a class="btn btn-success m-2" href="http://localhost/dhtl3/admin/" role="button"><i class="bi bi-house"></i></a>
-                    <a class="navbar-brand" href="#">Quản lý người dùng</a>
-                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <a class="navbar-brand " href="#">Quản lý người dùng</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" >
                         <span class="navbar-toggler-icon"></span>
                       </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -34,7 +34,7 @@ include('../config/constants.php')
                         </li>
 
                         <li class="nav-item">
-                          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Đăng Nhập</a>
                         </li>
                       </ul>
                       <form class="d-flex">

@@ -14,17 +14,21 @@ include('templates-admin/header.php');
 
     // Check whether the query executed successfully or not
     if($res==true)
-    {
-        header('location:'.SITEURL.'admin/index.php');
+    {           
+        $_SESSION['delete']="<div class='text-success'>Xóa nhân viên thanh công.</div>";
+        header('location:' .SITEURL. 'admin/index.php');
+
     }
     else
     {
-        echo "xóa thất bại";
+        $_SESSION['delete']="<div class='text-danger'>Xóa nhân viên thất bại.</div>";
+        header('location:' .SITEURL. 'admin/index.php');
+
        
     }
 
 ?>
 
-<?php
+<?php 
     include('templates-admin/footer.php');
 ?>

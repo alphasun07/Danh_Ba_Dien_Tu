@@ -4,14 +4,6 @@ include('templates-admin/header.php');
 ?>
 
 
-<?php 
-    session_start();
-    $_SESSION['manv'] = $_GET['manv'];
-  
-
-?>
-
-
 <div class="main-content">
     <div class="wrapper">
         <div class="alert alert-success text-center" role="alert">

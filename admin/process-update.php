@@ -21,20 +21,21 @@
         email='$email',
         madv= '$madv' WHERE manv= '$manv'";
 
+        //thưc hiện truy vấn đối vs csdl
         $query = mysqli_query($conn, $sql); 
 
         if((mysqli_query($conn, $sql))==TRUE)
         {
-        
-            echo "thnahf công";
-            header('location: index.php');
+            $_SESSION['update']="<div class='text-success'>Sửa nhân viên thành công.</div>";
+
+            header('location:' .SITEURL. 'admin/index.php');
         }
         else
         {
-            echo " thất bại";
-            
+            $_SESSION['update']="<div class='text-success'>Sửa nhân viên thất bại.</div>";
+            header('location:' .SITEURL. 'admin/index.php');
+       
         }
-
 
         mysqli_close($conn);
     
