@@ -15,10 +15,10 @@
 
         //lệnh truy vấn sql để update
         $sql = "UPDATE db_nhanvien SET
-        tennv='$tenNV';
-        chucvu='$chucvu';
-        sodidong= '$sodidong';
-        email='$email';
+        tennv='$tenNV',
+        chucvu='$chucvu',
+        sodidong= '$sodidong',
+        email='$email',
         madv= '$madv' WHERE manv= '$manv'";
 
         $query = mysqli_query($conn, $sql); 

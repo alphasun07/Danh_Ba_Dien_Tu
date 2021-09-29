@@ -14,11 +14,15 @@
         require("../config/constants.php");
 
         //lệnh sql
-        $sql="INSERT INTO db_nhanvien (tennv,chucvu,mayban,email,sodidong,madv) 
-        VALUES('$tenNV','$chucvu','$mayban','$email','$sodidong','$madv)";
+        $sql="INSERT INTO db_nhanvien SET 
+        tennv = '$tenNV',
+        chucvu = '$chucvu',
+        mayban = '$mayban',
+        email = '$email,
+        sodidong = '$sodidong',
+        madv = '$madv' ";
  
-        $query = mysqli_query($conn, $sql); 
-
+        $query = mysqli_query($conn,$sql); 
         echo $sql."<br>";
 
         //4. Check whether the (Query is Executed) data is inserted or not and display appropriate message
