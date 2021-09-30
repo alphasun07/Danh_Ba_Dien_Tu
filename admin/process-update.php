@@ -32,7 +32,7 @@
         }
         else
         {
-            $_SESSION['update']="<div class='text-success'>Sửa nhân viên thất bại.</div>";
+            $_SESSION['update']="<div class='text-danger'>Sửa nhân viên thất bại.</div>";
             header('location:' .SITEURL. 'admin/index.php');
        
         }

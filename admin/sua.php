@@ -1,6 +1,6 @@
 <?php
 include('templates-admin/header.php');
-
+$_SESSION['manv'] = $_GET['manv'];
 ?>
 
 
@@ -14,7 +14,6 @@ include('templates-admin/header.php');
         <div class="container">
             <?php
             #connect
-  
 
             #b2; lay ma nv
                 if(isset($_GET['manv']))
@@ -61,7 +60,6 @@ include('templates-admin/header.php');
                         <label class="input-group-text" for="inputGroupSelect01">Tên Đơn Vị</label>
                         <select class="form-select form-select-sm" name="sltMaDV" id="sltMaDV">
                         <?php
-                                //kết nối server
                                 
 
                                 //truy ván đữ liệu
@@ -88,7 +86,6 @@ include('templates-admin/header.php');
         </div>        
     </div>
 </div>
-
 
 
 <?php

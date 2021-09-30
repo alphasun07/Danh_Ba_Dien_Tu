@@ -27,13 +27,13 @@
         //4. Check whether the (Query is Executed) data is inserted or not and display appropriate message
         if($query==TRUE )
         {
-            $_SESSION['add']="<div class='success'>Thêm nhân viên thành công.</div>";
+            $_SESSION['add']="<div class='text-success'>Thêm nhân viên thành công.</div>";
 
             header('location:' .SITEURL. 'admin/index.php');
         }
         else
         {
-            $_SESSION['add']="<div class='success'>Thêm nhân viên thất bại.</div>";
+            $_SESSION['add']="<div class='text-danger'>Thêm nhân viên thất bại.</div>";
             header('location:' .SITEURL. 'admin/index.php');
 
         }
