@@ -32,32 +32,32 @@ $_SESSION['manv'] = $_GET['manv'];
             <form action="process-update.php" METHOD="GET">
                 <div class="col-md-5 mx-auto">
                     <div class="input-group mb-2">
-                        <span class="input-group-text">Họ và tên</span>
+                        <span class="input-group-text col-4">Họ và tên</span>
                         <input type="text" class="form-control" name= "txthoten" placeholder="Username"
                             value="<?php echo $row['tennv']; ?>">
                     </div>
 
                     <div class="input-group mb-2">
-                        <span class="input-group-text" >Chức Vụ</span>
+                        <span class="input-group-text col-4" >Chức Vụ</span>
                         <input type="text" class="form-control" name= "txtchucvu" placeholder="Username"
                             value="<?php echo $row['chucvu']; ?>">
                     </div>
                     
 
-                    <div class="input-group mb-2"> 
-                        <span class="input-group-text" >Email</span>
+                    <div class="input-group col"> 
+                        <span class="input-group-text col-4" >Email</span>
                         <input type="email" class="form-control" name="txtemail" placeholder="Enter Email" 
                             value="<?php echo $row['email']; ?>">          
                     </div>
 
                     <div class="input-group mb-2"> 
-                        <span class="input-group-text" >Số điện thoại</span>
+                        <span class="input-group-text col-4" >Số điện thoại</span>
                         <input type="tel" class="form-control" name="sodidong" placeholder="Enter Telephone" 
                             value="<?php echo $row['sodidong']; ?>">              
                     </div>
 
-                    <div class="input-group mb-2">
-                        <label class="input-group-text" for="inputGroupSelect01">Tên Đơn Vị</label>
+                    <div class="input-group mb-2 ">
+                        <label class="input-group-text col-4" for="inputGroupSelect01">Tên Đơn Vị</label>
                         <select class="form-select form-select-sm" name="sltMaDV" id="sltMaDV">
                         <?php
                                 
@@ -78,7 +78,7 @@ $_SESSION['manv'] = $_GET['manv'];
                         ?>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-info" name="update">Update</button>
+                    <button type="submit" class="btn btn-info" name="update">Sửa</button>
      
                 </div>
             </form>

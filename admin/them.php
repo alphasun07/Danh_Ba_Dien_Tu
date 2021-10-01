@@ -9,32 +9,39 @@ include('templates-admin/header.php');
         </div>
 
   <!-- sửa -->
-        <div class="container col-md-5 mx-auto">
-            <form action="process-add.php" method="POST">
-                <div class="row mb-1">
-                    <label for="exampleInputEmail1" class="form-label">Họ Tên</label>
-                    <input type="text" class="form-control form-select-sm" id="txthoten" name="txthoten">
-                </div>
-                <div class="row mb-1">
-                    <label for="exampleInputPassword1" class="form-label">Chức Vụ</label>
-                    <input type="text" class="form-control form-select-sm" id="txtchucvu" name="txtchucvu">
-                </div>
-                <div class="row mb-1">
-                    <label for="exampleInputPassword1" class="form-label">máy bàn</label>
-                    <input type="tel" class="form-control form-select-sm" id="txtmayban" name="txtmayban">
-                </div>
-                <div class="row mb-1">
-                    <label for="exampleInputPassword1" class="form-label">Email</label>
-                    <input type="email" class="form-control form-select-sm" id="txtemail" name="txtemail">
-                </div>
-                <div class="row mb-1">
-                    <label for="exampleInputPassword1" class="form-label">Số di động</label>
-                    <input type="tel" class="form-control form-select-sm" id="sodidong" name="sodidong">
-                </div>
-                <div class="row mb-1 ">
-                    <label for="exampleInputPassword1" class="form-label">Tên Đơn Vị</label>
-                    <select class="form-select form-select-sm" name="sltMaDV" id="sltMaDV">
-                       <?php
+        <div class="container col-md-10 mx-auto">
+            <form action="process-add.php" METHOD="POST">
+                <div class="col-md-5 mx-auto">
+                    <div class="input-group mb-2">
+                        <span class="input-group-text col-4">Họ và tên</span>
+                        <input type="text" class="form-control" name= "txthoten" placeholder="Nhập họ và tên">
+                    </div>
+
+                    <div class="input-group mb-2">
+                        <span class="input-group-text col-4" >Chức Vụ</span>
+                        <input type="text" class="form-control" name= "txtchucvu" placeholder="Nhập chức vụ">
+                    </div>
+                    
+                    <div class="input-group mb-2">
+                        <span class="input-group-text col-4" >Máy bàn</span>
+                        <input type="text" class="form-control" name= "txtmayban" placeholder="Nhập số máy bàn">
+                    </div>
+
+                    <div class="input-group mb-2"> 
+                        <span class="input-group-text col-4" >Email</span>
+                        <input type="email" class="form-control" name="txtemail" placeholder="Nhập email" >      
+                    </div>
+
+                    <div class="input-group mb-2"> 
+                        <span class="input-group-text col-4" >Số điện thoại</span>
+                        <input type="tel" class="form-control" name="sodidong" placeholder="Nhập số điện thoại    ">             
+                    </div>
+
+                    <div class="input-group mb-2 ">
+                        <label class="input-group-text col-4" for="inputGroupSelect01">Tên Đơn Vị</label>
+                        <select class="form-select form-select-sm" name="sltMaDV" id="sltMaDV">
+                        <?php
+                                
                             //kết nối server
                             require('../config/constants.php');
 
@@ -51,13 +58,14 @@ include('templates-admin/header.php');
 
                             //đóng kết nối
                             mysqli_close($conn);
-                       ?>
-                    </select>
+                        ?>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-info" name="submit">Thêm</button>
+     
                 </div>
-                
-                <button type="submit" class="btn btn-info" name="submit">Submit</button>
-            </form> 
-           
+            </form>
+                      
         </div>        
     </div>
 </div>

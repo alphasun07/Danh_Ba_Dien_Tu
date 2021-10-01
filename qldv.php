@@ -14,16 +14,16 @@ include('templates/header.php')
                 <thead>
                   <tr>
                     <th scope="col">STT</th>
-                    <th scope="col">Họ và tên</th>
-                    <th scope="col">Chức vụ</th>
+                    <th scope="col">Tên Đơn Vị</th>
+                    <th scope="col">Địa chỉ</th>
+                    <th scope="col">Điện thoại</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Số điện thoại</th>
-                    <th scope="col">Tên đơn vị</th>
+                    <th scope="col">Website</th>
                   </tr>
                 </thead>
                 <tbody>       
                   <?php
-                      $sql="SELECT nv.manv, nv.tennv, nv.chucvu, nv.email, nv.sodidong, dv.tendv FROM db_nhanvien nv, db_donvi dv WHERE nv.madv=dv.madv";
+                      $sql="SELECT tendv,diachi,dienthoai,email,website FROM db_donvi";
                       $result = mysqli_query($conn,$sql);
 
                       //xuwr lys keets quar trarve
@@ -33,11 +33,11 @@ include('templates/header.php')
                   ?>      
                     <tr>
                       <th scope="row"><?php echo $i; ?></th>
-                      <td><?php echo $row['tennv']; ?></td>
-                      <td><?php echo $row['chucvu']; ?></td>
-                      <td><?php echo $row['email']; ?></td>
-                      <td><?php echo $row['sodidong']; ?></td>
                       <td><?php echo $row['tendv']; ?></td>
+                      <td><?php echo $row['diachi']; ?></td>
+                      <td><?php echo $row['dienthoai']; ?></td>
+                      <td><?php echo $row['email']; ?></td>
+                      <td><?php echo $row['website']; ?></td>
                                                         
                     </tr>
                 <?php
