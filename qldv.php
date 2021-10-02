@@ -19,6 +19,8 @@ include('templates/header.php')
                     <th scope="col">Điện thoại</th>
                     <th scope="col">Email</th>
                     <th scope="col">Website</th>
+                    <th scope="col">Khoa</th>
+
                   </tr>
                 </thead>
                 <tbody>       
@@ -38,6 +40,14 @@ include('templates/header.php')
                       <td><?php echo $row['dienthoai']; ?></td>
                       <td><?php echo $row['email']; ?></td>
                       <td><?php echo $row['website']; ?></td>
+
+                      <?php
+                        $sql1="SELECT dv.MaDV, dv.TenDV, dv.Email, dv.DiaChi, dv.Website, dv.DienThoai, dv.MaDV_Cha, dv1.TenDV as TenDV_Cha from db_donvi as dv, db_donvi as dv1 where dv.MaDV_Cha = dv1.MaDV
+                        UNION
+                        select MaDV, TenDV, Email, DiaChi, Website, DienThoai, MaDV_Cha, null as TenDV_Cha from db_donvi where MaDV_Cha is null"
+
+                        
+                      ?>
                                                         
                     </tr>
                 <?php
