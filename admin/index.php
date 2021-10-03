@@ -23,6 +23,13 @@ include('templates-admin/header.php')
               echo $_SESSION['delete'];
               unset($_SESSION['delete']);
             }
+
+            if(isset($_SESSION['login']))
+            {
+              echo $_SESSION['login'];
+              unset($_SESSION['login']);
+            }
+
       ?>
           <div class="row">  
             <div class="col-md">

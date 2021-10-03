@@ -94,13 +94,13 @@ include('templates-admin/header.php');
         //4. Check whether the (Query is Executed) data is inserted or not and display appropriate message
         if($query==TRUE )
         {
-            $_SESSION['add']="<div class='text-success'>Thêm đơn vị thành công.</div>";
+            $_SESSION['add-qldv']="<div class='text-success'>Thêm đơn vị thành công.</div>";
 
             header('location:' .SITEURL. 'admin/index.php');
         }
         else
         {
-            $_SESSION['add']="<div class='text-danger'>Thêm đơn vị thất bại.</div>";
+            $_SESSION['add-qldv']="<div class='text-danger'>Thêm đơn vị thất bại.</div>";
             header('location:' .SITEURL. 'admin/index.php');
 
         }

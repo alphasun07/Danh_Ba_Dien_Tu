@@ -136,12 +136,12 @@ ob_start();
 
         if($query==TRUE)
         {
-            $_SESSION['update']="<div class='text-success'>Sửa nhân viên thành công.</div>";
+            $_SESSION['update-qldv']="<div class='text-success'>Sửa nhân viên thành công.</div>";
             header('location: http://localhost/dhtl3/admin/index.php');
         }
         else
         {
-            $_SESSION['update']="<div class='text-danger'>Sửa nhân viên thất bại.</div>";
+            $_SESSION['update-qldv']="<div class='text-danger'>Sửa nhân viên thất bại.</div>";
             header('location: http://localhost/dhtl3/admin/');
         }
    }

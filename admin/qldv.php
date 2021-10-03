@@ -4,24 +4,24 @@ include('templates-admin/header.php')
       <div class="row nav-menu ">
       <?php
         //ktra session có tồn tại hay k và phải có tên
-          if(isset($_SESSION['add']))
+          if(isset($_SESSION['add-qldv']))
             {
-              echo $_SESSION['add'];
+              echo $_SESSION['add-qldv'];
 
               //xóa session add
-              unset($_SESSION['add']);
+              unset($_SESSION['add-qldv']);
             }
             
-            if(isset($_SESSION['update']))
+            if(isset($_SESSION['update-qldv']))
             {
-              echo $_SESSION['update'];
-              unset($_SESSION['update']);
+              echo $_SESSION['update-qldv'];
+              unset($_SESSION['update-qldv']);
             }
 
-            if(isset($_SESSION['delete']))
+            if(isset($_SESSION['delete-qldv']))
             {
-              echo $_SESSION['delete'];
-              unset($_SESSION['delete']);
+              echo $_SESSION['delete-qldv'];
+              unset($_SESSION['delete-qldv']);
             }
       ?>
          
