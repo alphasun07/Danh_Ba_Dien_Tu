@@ -21,12 +21,14 @@ include('config/constants.php')
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                   <div class="container-fluid">
                     <a class="btn btn-success m-2" href="http://localhost/dhtl3/" role="button"><i class="bi bi-house"></i></a>
-                    <a class="navbar-brand" href="http://localhost/dhtl3/">Quản lý người dùng</a>
                       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                       </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                          <a class="nav-link active " href="index.php">Quản lý người dùng</a>
+                        </li>
                         <li class="nav-item">
                           <a class="nav-link active" aria-current="page" href="http://localhost/dhtl3/qldv.php">Quản lý Đơn Vị</a>
                         </li>

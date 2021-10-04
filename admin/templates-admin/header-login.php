@@ -36,12 +36,6 @@ include('../config/constants.php')
                           <a class="nav-link" href="#">Quản lý tài khoản</a>
                         </li>
 
-                        <li class="nav-item">
-                          <a class="nav-link" href="http://localhost/dhtl3/admin/login.php" tabindex="-1" aria-disabled="true">Đăng Nhập</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="http://localhost/dhtl3/admin/register.php" tabindex="-1" aria-disabled="true">Đăng Ký</a>
-                        </li>
                       </ul>
                       <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

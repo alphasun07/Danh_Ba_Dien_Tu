@@ -1,5 +1,5 @@
 <?php
-include('templates-admin/header.php');
+include('templates-admin/header-login.php');
 ?>
 
 <div class="main-content">
@@ -8,11 +8,11 @@ include('templates-admin/header.php');
             <h3 class="text-center">Đăng Nhập</h3>
             <form action="" method="POST">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
                     <input type="email" name ="txtemail" class="form-control" id="exampleInputEmail1">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
                     <input type="password" name ="pass" class="form-control" id="exampleInputPassword1">
                 </div>
                 
@@ -24,7 +24,7 @@ include('templates-admin/header.php');
                   }
              
                 ?>
-                <button type="submit" class="btn btn-primary mb-2" name="login">Login</button>
+                <button type="submit" class="btn btn-primary mb-2" name="login">Đăng nhập</button>
             </form>
         </div>
         
