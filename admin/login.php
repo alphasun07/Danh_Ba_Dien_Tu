@@ -50,6 +50,12 @@ include('templates-admin/header-login.php');
             $row= mysqli_fetch_assoc($result_1);
             $pass_saved = $row ['password'];
 
+            //ktra status bằng 0 thì tk chưa đc kích hoạt
+            // if($row['status==0']){
+            //     $_SESSION['login']="<div class='text-danger'>Tài khoản chưa được kích hoạt</div>";
+            //     header("Location:login.php");
+            // }
+
             if(password_verify($pass, $pass_saved)){
                 //nếu khớp thì > login thành công > chuyenr vào trang index
 

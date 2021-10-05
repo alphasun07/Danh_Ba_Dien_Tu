@@ -22,10 +22,10 @@
         sodidong = '$sodidong',
         madv = '$madv' ";
  
-        $query = mysqli_query($conn,$sql) or die(mysqli_error());; 
+        $query = mysqli_query($conn,$sql) or die(mysqli_error());
 
         //4. Check whether the (Query is Executed) data is inserted or not and display appropriate message
-        if($query==TRUE )
+        if($query==TRUE)
         {
             $_SESSION['add']="<div class='text-success'>Thêm nhân viên thành công.</div>";
 

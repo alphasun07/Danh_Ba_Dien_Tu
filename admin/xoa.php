@@ -23,8 +23,7 @@ include('templates-admin/header.php');
     {
         $_SESSION['delete']="<div class='text-danger'>Xóa nhân viên thất bại.</div>";
         header('location:' .SITEURL. 'admin/index.php');
-
-       
+  
     }
 
 ?>

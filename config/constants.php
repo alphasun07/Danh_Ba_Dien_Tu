@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     //bắt dầu session
     session_start();
 
