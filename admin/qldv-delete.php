@@ -15,7 +15,7 @@ include('templates-admin/header.php');
     // Check whether the query executed successfully or not
     if($res==true)
     {           
-        $_SESSION['delete-qldv']="<div class='text-success'>Xóa đơn vị thanh công.</div>";
+        $_SESSION['delete-qldv']="<div class='text-success'>Xóa đơn vị thành công.</div>";
         header('location:' .SITEURL. 'admin/qldv.php');
 
     }

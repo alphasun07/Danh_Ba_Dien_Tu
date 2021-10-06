@@ -1,3 +1,5 @@
+<!--  CÁI TRANG NÀY ĐỂ GỬI EMAIL CÓ CHƯA ĐƯỜNG LINK CÓ PHUOENG THỨC GET-->
+
 <?php
 include('../config/constants.php');
 ?>
@@ -13,15 +15,20 @@ include('../config/constants.php');
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     </head>
     <body style="height:100vh">
-        <div class="row w-50 py-5 h-50 m-auto border rounded border-5 d-flex align-items-center">
-            <div class="col-12 text-center fs-3 text fw-normal text-uppercase">
-                Hãy kiểm tra email của bạn và làm theo hướng dẫn để xác thực tài khoản của bạn
+        <div class="m-5">
+            <div class="row w-50 py-5 h-50 m-auto border rounded border-5 d-flex align-items-center ">
+                <div class="col-12 text-center fs-3 text fw-normal text-uppercase mb-3">
+                    Hãy kiểm tra email của bạn và làm theo hướng dẫn để xác thực tài khoản của bạn
+                </div>
+                <a class="m-auto w-25 btn btn-primary" href="login.php">Đăng nhập</a>
             </div>
-            <a class="m-auto w-25 btn btn-primary" href="login.php">Đăng nhập</a>
         </div>
     </body>
 </html>
+
+
 <?php
+
        use PHPMailer\PHPMailer\PHPMailer;
        use PHPMailer\PHPMailer\SMTP;
        use PHPMailer\PHPMailer\Exception;
@@ -32,7 +39,19 @@ include('../config/constants.php');
    
    $mail = new PHPMailer(true);
 
+   //lấy ra code viết email
+  
+   $email=$_GET['email'];
+   $sql="SELECT*FROM users WHERE email ='$email'";
+   $query= mysqli_query($conn,$sql);
+   if(mysqli_num_rows($query)>0){
+       $row = mysqli_fetch_assoc($query);
+        $code =$row['code'];
+
+   }
+
    try {
+
        //Server settings
        $mail->isSMTP();// gửi mail SMTP
        $mail->Host = 'smtp.gmail.com';// Set the SMTP server to send through
@@ -47,7 +66,7 @@ include('../config/constants.php');
    
        $mail->addReplyTo('doanh0712@gmail.com', 'Văn phòng Khoa CNTT - Trường ĐH Thủy lợi');
        
-        $email=$_GET['email'];
+    
        $mail->addAddress($email); // thay = tên biến chứa email đky
    
        // Content
@@ -58,14 +77,12 @@ include('../config/constants.php');
        
        // Mail body content 
        $bodyContent = '<h1>Chào mừng bạn</h1>'; 
-       $bodyContent .= '<p>Bạn hãy nhấn vào đường dẫn sau để kích hoạt tài khoản <a href="http://localhost/dhtl3/admin/login.php">Click Here</a></p>'; 
+       $bodyContent .= '<p>Bạn hãy nhấn vào đường dẫn sau để kích hoạt tài khoản <a href="http://localhost/dhtl3/admin/verify-code.php?email='.$email.'&code='.$code.'">Click Here</a></p>'; 
        $mail->Body    = $bodyContent; 
        
        // Send email 
        if(!$mail->send()) { 
            echo 'Message could not be sent. Mailer Error: '.$mail->ErrorInfo; 
-       } else { 
-           echo 'Message has been sent.'; 
        }
    
    

@@ -20,7 +20,7 @@ include_once('templates-admin/header-login.php');
                                 }
 
                             ?>                     
-                        <form action="phpmailer-admin.php" METHOD = "POST" class="mx-1 ">
+                        <form action="process-register.php" METHOD = "POST" class="mx-1 ">
 
                             <div class="d-flex flex-row align-items-center mb-3">
                                 <i class="fas fa-user fa-lg me-3 fa-fw"></i>
