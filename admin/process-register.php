@@ -21,7 +21,9 @@
     else{
         //2.2 nếu chưa ồn tại thì ms lưu
         //băm pass
-        $code = rand();
+      
+        $str = rand();
+        $code = md5($str);
         $pass_hash = password_hash($pass1, PASSWORD_DEFAULT);
         $sql_2 = "INSERT INTO users(name_user, email, password,code) VALUES('$name','$email','$pass_hash','$code')";
         $result_2 = mysqli_query($conn,$sql_2); //vì thực hiện insert: kq trẩ về của result_2 là số bản ghi thành công(số nguyên)

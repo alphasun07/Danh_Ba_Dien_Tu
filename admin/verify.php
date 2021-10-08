@@ -56,15 +56,15 @@ include('../config/constants.php');
        $mail->isSMTP();// gửi mail SMTP
        $mail->Host = 'smtp.gmail.com';// Set the SMTP server to send through
        $mail->SMTPAuth = true;// Enable SMTP authentication
-       $mail->Username = 'doanh0712@gmail.com';// SMTP username
-       $mail->Password = '2047122112'; // SMTP password
+       $mail->Username = '';// SMTP username
+       $mail->Password = ''; // SMTP password
        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;// Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
        $mail->Port = 587; // TCP port to connect to
        $mail->CharSet = 'UTF-8';
        //Recipients
-       $mail->setFrom('doanh0712@gmail.com', 'Văn phòng Khoa CNTT - Trường ĐH Thủy lợi');
+       $mail->setFrom('', 'Văn phòng Khoa CNTT - Trường ĐH Thủy lợi');
    
-       $mail->addReplyTo('doanh0712@gmail.com', 'Văn phòng Khoa CNTT - Trường ĐH Thủy lợi');
+       $mail->addReplyTo('', 'Văn phòng Khoa CNTT - Trường ĐH Thủy lợi');
        
     
        $mail->addAddress($email); // thay = tên biến chứa email đky
@@ -76,6 +76,7 @@ include('../config/constants.php');
        $mail->Subject = 'Đăng ký thành công'; 
        
        // Mail body content 
+       $mail->Body    = '<p>Xin chào<b> ' . $name . ',</b></p>';
        $bodyContent = '<h1>Chào mừng bạn</h1>'; 
        $bodyContent .= '<p>Bạn hãy nhấn vào đường dẫn sau để kích hoạt tài khoản <a href="http://localhost/dhtl3/admin/verify-code.php?email='.$email.'&code='.$code.'">Click Here</a></p>'; 
        $mail->Body    = $bodyContent; 
