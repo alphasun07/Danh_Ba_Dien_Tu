@@ -17,6 +17,7 @@
         if($query1 == TRUE)
         {
             $_SESSION['verify'] = "<div class='col-12 text-center fs-3 text fw-normal text-uppercase'>Chúc mừng bạn đã xác thực tài khoản thành công. Xin vui lòng đăng nhập lại bằng tài khoản của bạn</div><a class='m-auto w-25 btn btn-primary' href='login.php'>Đăng nhập</a>";
+    
         }
         else
         {

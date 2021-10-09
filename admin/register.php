@@ -14,9 +14,9 @@ include_once('templates-admin/header-login.php');
                         <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-4 mt-3">Đăng Ký</p>
                           <?php
 
-                                if(isset($_SESSION['reg'])){
-                                    echo $_SESSION['reg'];
-                                    unset ($_SESSION['reg']);
+                                if(isset($_SESSION['reg_fail'])){
+                                    echo $_SESSION['reg_fail'];
+                                    unset ($_SESSION['reg_fail']);
                                 }
 
                             ?>                     

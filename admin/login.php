@@ -46,7 +46,13 @@ include_once('templates-admin/header-login.php');
                                         echo $_SESSION['login'];
                                         unset ($_SESSION['login']);
                                     }
+                                    if(isset($_SESSION['reg_success'])){
+                                        echo $_SESSION['reg_success'];
+                                        unset ($_SESSION['reg_success']);
+                                    }
+                                                                    
                                 ?>
+                                
                             <button type="submit" name="login" class="btn btn-primary btn-lg">Đăng nhập</button>
                             <p class="small fw-bold mt-2 pt-1 mb-0">Bạn chưa có tài khoản? <a href="register.php"class="link-danger">Đăng ký</a></p>
                         </div>
