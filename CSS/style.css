@@ -1,0 +1,73 @@
+/* Remove default bullets */
+ul, #myUL {
+    list-style-type: none;
+  }
+  
+  /* Remove margins and padding from the parent ul */
+  #myUL {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style the caret/arrow */
+  .caret {
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+
+  }
+  
+  /* Create the caret/arrow with a unicode, and style it */
+  .caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+  }
+  
+  /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+  .caret-down::before {
+    transform: rotate(90deg);
+  }
+  
+  /* Hide the nested list */
+  .nested {
+    display: none;
+
+  }
+  
+  /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+  .active {
+    display: block;
+  }
+
+ /* #myUL .caret.closed {
+    display: block;
+    padding: .2em .2em .2em .4em;
+    margin-right: 0;
+    border-top-left-radius: .3em;
+    border-bottom-left-radius: .3em
+}
+
+.tree-view ul .caret.closed:hover {
+    background-color: #8cb9ff
+}
+
+.tree-view ul .caret.open {
+    background-color: #32a0ff;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear
+}
+
+.tree-view .caret.open:hover {
+    color: #f8f9fa;
+    background-color: #32a0ff
+}
+
+.tree-view .caret.open span {
+    color: #f8f9fa
+} */
+
+
+#myUL .nested li a{
+  text-decoration: none;
+}

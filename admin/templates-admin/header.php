@@ -10,7 +10,7 @@ include('../config/constants.php')
         <title>Danh Bạ Điện Tử</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="../learning_web/style.css"> 
+        <link rel="stylesheet" href="../CSS/style.css"> 
     </head>
     <body>
         <div class="container-fluid"> 
@@ -33,7 +33,7 @@ include('../config/constants.php')
                           <a class="nav-link active" aria-current="page" href="http://localhost/dhtl3/admin/qldv.php">Quản lý Đơn Vị</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Quản lý tài khoản</a>
+                          <a class="nav-link" href="qltk.php">Quản lý tài khoản</a>
                         </li>
 
                         

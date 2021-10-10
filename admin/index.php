@@ -31,8 +31,33 @@ include('templates-admin/header.php')
             }
 
       ?>
-          <div class="row">  
-            <div class="col-md">
+          <!--cây tree  -->
+          <div class="row container">  
+            <div class="col-md-3">
+              <div class="tree-view m-5">
+                <ul id="myUL">
+                  <li><span class="caret"><a class="closed open" href="#">Quản lý người dùng</a></span>
+                    <ul class="nested">
+                      <li><a href="index.php"><i class="bi bi-folder">Tất cả người dùng</i></a></li>
+                      <li><a href="#"><i class="bi bi-folder">Khoa CNTT</i></a></li>
+                      <li><a href="#"><i class="bi bi-folder">Khoa Cơ khí</i></a></li>
+                      <li><a href="#"><i class="bi bi-folder">Khoa Kinh tế</i></a></li>
+                    </ul>
+                  </li>
+                  <li><span class="caret"><a class="closed open" href="#">Quản lý đơn vị</a></span>
+                    <ul class="nested">
+                      <li><a href="qldv.php"><i class="bi bi-folder">Tất cả đơn vị</i></a></li>
+                      <li><a href="#"><i class="bi bi-folder">Khoa</i></a></li>
+                      <li><a href="#"><i class="bi bi-folder">Bộ môn</i></a></li>  
+                      <li><a href=""><i class="bi bi-folder">Phòng ban</i></a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            
+            <!-- bảng -->
+            </div>
+            <div class="col-md-9">
               <a class="btn btn-primary m-3" href="them.php" role="button">Thêm mới</a>
 
                 <table class="table table-success table-striped">
@@ -81,8 +106,20 @@ include('templates-admin/header.php')
                     </tbody>
                   </table>
             </div>
+           
           </div>
       </div>
 <?php
 include('templates-admin/footer.php')
 ?>
+<script>
+  var toggler = document.getElementsByClassName("caret");
+  var i;
+
+  for (i = 0; i < toggler.length; i++) {
+    toggler[i].addEventListener("click", function() {
+      this.parentElement.querySelector(".nested").classList.toggle("active");
+      this.classList.toggle("caret-down");
+    });
+  }
+</script>

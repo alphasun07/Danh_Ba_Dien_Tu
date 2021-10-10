@@ -12,20 +12,20 @@
   </head>
   <body>
     <form action="process-upload.php" method="post" enctype="multipart/form-data">
-    <div class="avatar" style="Width:100px">
-        <img src="IMG/avata1.jpg" id="avatar" alt="">
-    </div>
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="submit" value="Cập nhật ảnh đại diện" name="submit">
+      <div class="avatar" style="Width:100px">
+          <img src="IMG/avata1.jpg" id="avatar" alt="">
+      </div>
+          <input type="file" name="fileToUpload" id="fileToUpload">
+          <input type="submit" value="Cập nhật ảnh đại diện" name="submit">
     </form>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function(){
             $("#fileToUpload").change(function(e){
-                alert(e.target,file[0].name);
-                $("#avatar").attr('src','image/'+e.target.file[0].name);
+                alert(e.target.file[0].name);
+                $("#avatar").attr('src','IMG/'+e.target.file[0].name);
             })
         })
     </script>

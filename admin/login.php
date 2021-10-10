@@ -94,7 +94,9 @@ include_once('templates-admin/header-login.php');
                 
               
                 $_SESSION['login']= "<div class='text-success'>Đăng nhập thành công.</div>";
+                $_SESSION['user']=$email;
                 header("Location: index.php");
+
             }
             elseif($row['STATUS']==0){
                 $_SESSION['login']="<div class='text-danger'>Tài khoản chưa được kích hoạt</div>";
