@@ -10,70 +10,106 @@ if(mysqli_num_rows($query_1)>0){
 
 }
 ?>
-<img src="<?php echo $row['avatar'];?>" alt="" id="anh2">
-<form action="" method="POST" enctype="multipart/form-data">
-    <input type="file" name="file_image" >
-        <button type="submit" name = "submit">Chọn ảnh</button>
-</form>
 
-<?php
-if(isset($_POST['submit'])){
+<link rel="stylesheet" href="../CSS/profile.css"> 
+<div class="container">
+    <div class="main-body m-4">
+            <div class="row gutters-sm">
 
-    $target_dir = "images/";
-    $target_file = $target_dir . basename($_FILES["file_image"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
- 
+            <?php
+            if(isset($_SESSION['profile'])){
+                echo $_SESSION['profile'];
+                unset ($_SESSION['profile']);
+            }
+            ?>
 
-    // Check if image file is a actual image or fake image
-    if(isset($_POST["submit"])) {
-        $check = getimagesize($_FILES["file_image"]["tmp_name"]);
-        if($check !== false) {
-            echo "File is an image - " . $check["mime"] . ".";
-            $uploadOk = 1;
-        } else {
-            echo "File is not an image.";
-            $uploadOk = 0;
-        }
-    }
+            <!-- avatar -->
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="<?php echo $row['avatar'];?>" alt="" id="anh2" alt="Admin" class="rounded-circle img-fluid img-thumbnail" width="225px">
+                            <div class="mt-3">
+                                <h4><?php echo $row['name_user'];?></h4>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            
+            <?php
+                $sql_2="SELECT name_user, email, password, gioitinh,diachi FROM users WHERE email='$email' ";
+                $query_2=mysqli_query($conn,$sql_2);
+                if(mysqli_num_rows($query_2)>0){
+                    $row=mysqli_fetch_assoc($query_2);
+                    
+                }
+            ?>
 
-    // Check if file already exists
-    if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
-        $uploadOk = 0;
-    }
+            <!-- info -->
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Họ và Tên</h6>
+                            </div>
+                        <div class="col-sm-9 text-secondary">
+                            <?php echo $row['name_user'];?>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Email</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <?php echo $row['email'];?>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Mật khẩu</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <?php echo $row['password'];?>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Giới tính</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <?php echo $row['gioitinh'];?>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Địa chỉ</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <?php echo $row['diachi'];?>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <a class="btn btn-success btn-lg " href="update-profile.php">Sửa</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+          </div>
 
-    // Check file size
-    if ($_FILES["file_image"]["size"] > 500000) {
-        echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
+        </div>
+    </div>
 
-    // Allow certain file formats
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        $uploadOk = 0;
-    }
 
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
-    // if everything is ok, try to upload file
-    } else {
-        if (move_uploaded_file($_FILES["file_image"]["tmp_name"], $target_file)) {
-            echo "The file ". htmlspecialchars( basename( $_FILES["file_image"]["name"])). " has been uploaded.";
-        } else {
-            echo "Sorry, there was an error uploading your file.";
-        }
-    }
-
-    $sql="UPDATE users SET avatar='$target_file' WHERE email='$email'";
-    $query=mysqli_query($conn,$sql);
-    if($query==true){
-        header('location:'.SITEURL.'admin/qltk.php');
-    }
-}
-?>
 <?php
 include_once('templates-admin/footer.php');
 ?>

@@ -33,7 +33,7 @@ include('../config/constants.php')
                           <a class="nav-link active" aria-current="page" href="http://localhost/dhtl3/admin/qldv.php">Quản lý Đơn Vị</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="qltk.php">Quản lý tài khoản</a>
+                          <a class="nav-link active" href="qltk.php">Quản lý tài khoản</a>
                         </li>
 
                         

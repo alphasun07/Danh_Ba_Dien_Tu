@@ -4,4 +4,3 @@ $(document).ready(function(){
         $("#avatar").attr('src','image/'+e.target.file[0].name);
     })
 })
-
