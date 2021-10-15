@@ -1,111 +1,13 @@
 <?php
-include('templates-admin/header.php');
+include('../config/constants.php')
 ?>
 
 <?php
-   $email=$_SESSION['user'];
-$sql_1="SELECT * FROM users WHERE email='$email' ";
-$query_1=mysqli_query($conn,$sql_1);
-if(mysqli_num_rows($query_1)>0){
-    $row=mysqli_fetch_assoc($query_1);
-
-}
-?>
-
-<link rel="stylesheet" href="../CSS/profile.css"> 
-<div class="container">
-		<div class="main-body">
-			<div class="row m-4">
-				 <!-- avatar -->
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex flex-column align-items-center text-center">
-                                <img src="<?php echo $row['avatar'];?>" alt="" id="anh2" alt="Admin" class="rounded-circle" width="225px" height="200px">
-                                <div class="mt-3">
-                                    <h4></h4>
-                                    <form action="" method="POST" enctype="multipart/form-data">
-                                        <input type="file" name="file_image" >
-                                        <button type="submit" name = "submit">Chọn ảnh</button>
-                                    </form>
-									
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-				<div class="col-lg-8">
-					<div class="card">
-						<div class="card-body">
-
-						<!-- xử lý hiển thị tt -->
-						<?php
-						 	$email=$_SESSION['user'];
-							$sql_2="SELECT name_user, email, password, gioitinh,diachi FROM users WHERE email='$email' ";
-							$query_2=mysqli_query($conn,$sql_2);
-							if(mysqli_num_rows($query_2)>0){
-								$row=mysqli_fetch_assoc($query_2);
-								
-							}
-						?>
-
-						<!-- info -->
-							<form action="" method="POST">
-								<div class="row mb-3">
-									<div class="col-sm-3">
-										<h6 class="mb-0">Họ và tên</h6>
-									</div>
-									<div class="col-sm-9 text-secondary">
-										<input type="text" name="txthoten" class="form-control" value="<?php echo $row['name_user']; ?>">
-									</div>
-								</div>
-								<div class="row mb-3">
-									<div class="col-sm-3">
-										<h6 class="mb-0">Email</h6>
-									</div>
-									<div class="col-sm-9 text-secondary">
-										<input type="email" name="txtemail" class="form-control" value="<?php echo $row['email']; ?>">
-									</div>
-								</div>
-								
-								<div class="row mb-3">
-									<div class="col-sm-3">
-										<h6 class="mb-0">Giới tính</h6>
-									</div>
-									<div class="col-sm-9 text-secondary">
-										<input type="text" name="txtgioitinh" class="form-control" value="<?php echo $row['gioitinh']; ?>">
-									</div>
-								</div>
-								<div class="row mb-3">
-									<div class="col-sm-3">
-										<h6 class="mb-0">Địa chỉ</h6>
-									</div>
-									<div class="col-sm-9 text-secondary">
-										<input type="text" name="txtdiachi" class="form-control" value="<?php echo $row['diachi']; ?>">
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-3"></div>
-									<div class="col-sm-9 text-secondary">
-										<input type="submit" name="up-profile" class="btn btn-success px-4" value="Lưu thay đổi">
-									</div>
-								</div>
-							</form>
-							
-						</div>
-					</div>
-				
-				</div>
-			</div>
-		</div>
-	</div>
-<?php
-include_once('templates-admin/footer.php');
-?>
-<?php
+$email=$_SESSION['user'];
 if(isset($_POST['submit'])){
 
     $target_dir = "images/";
+    $newFileName = $_POST['newFileName'];
     $target_file = $target_dir . basename($_FILES["file_image"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -146,45 +48,50 @@ if(isset($_POST['submit'])){
         echo "Sorry, your file was not uploaded.";
     // if everything is ok, try to upload file
     } else {
-        if (move_uploaded_file($_FILES["file_image"]["tmp_name"], $target_file)) {
+        if (move_uploaded_file($_FILES["file_image"]["tmp_name"], $target_dir.$newFileName)) {
             echo "The file ". htmlspecialchars( basename( $_FILES["file_image"]["name"])). " has been uploaded.";
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
     }
 
-    $sql="UPDATE users SET avatar='$target_file' WHERE email='$email'";
+    $sql="UPDATE users SET avatar='$newFileName' WHERE email='$email'";
     $query=mysqli_query($conn,$sql);
     if($query==true){
-        header('location:'.SITEURL.'admin/update-profile.php');
+        header('location:'.SITEURL.'admin/qltk1.php');
     }
 }
 ?>
 
 <!-- sửa trên database -->
 <?php
-$email=$_SESSION['user'];
+
 if(isset($_POST['up-profile'])){
 	$hoten=$_POST['txthoten'];
 	$email=$_POST['txtemail'];
 	$gioitinh=$_POST['txtgioitinh'];
 	$diachi=$_POST['txtdiachi'];
+	$sdt=$_POST['sdt'];
+	$ngaysinh=$_POST['txtngaysinh'];
 
 	//update
 	$sql="UPDATE users SET
 	name_user='$hoten',
 	email='$email',
 	gioitinh='$gioitinh',
-	diachi='$diachi' WHERE email='$email'";
+	diachi='$diachi', 
+	sdt='$sdt',
+	ngaySinh ='$ngaysinh'
+	WHERE email='$email'";
 
 	$query=mysqli_query($conn,$sql);
 	if($query==TRUE){
 		$_SESSION['profile']="<div class='text-success'>Sửa tài khoản thành công</div>";
-		header('location:http://localhost/dhtl3/admin/qltk.php');
+		header('location:http://localhost/dhtl3/admin/qltk1.php');
 	}
 	else{
 		$_SESSION['profile']="<div class='text-danger'>Sửa tài khoản thất bại</div>";
-		header('location:http://localhost/dhtl3/admin/qltk.php');
+		header('location:http://localhost/dhtl3/admin/qltk1.php');
 	}
 }
 ?>

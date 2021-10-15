@@ -108,6 +108,22 @@ include('templates-admin/header.php')
             </div>
            
           </div>
+
+          <!-- xuất nhập file -->
+          <form action="">
+            <input type="file">
+          </form>
+          <form action="update-profile.php" method="POST" enctype="multipart/form-data" id="form_avatar">
+                    <div class="row justify-content-center align-items-center w-100 m-auto rounded" style="background-color:#e4e4e4;">
+                        <div class="col-8 ps-4" style="font-weight: 600; color: #223035; font-size:16px; line-height: 16px;"> Chọn ảnh đại diện:</div>
+                        <div class="col-4 file-upload">
+                            <input type="file" name="file_image" />
+                            <i class="fa fa-arrow-up"></i>
+                        </div>
+                    </div>
+                        <!-- <input type="file" class="custom-file-upload"  > -->
+                        <button type="submit" class="btn btn-outline-primary mt-2 btn-rounded rounded-pill w-100" data-mdb-ripple-color="dark" name = "submit">Cập nhật ảnh</button>
+                    </form>
       </div>
 <?php
 include('templates-admin/footer.php')

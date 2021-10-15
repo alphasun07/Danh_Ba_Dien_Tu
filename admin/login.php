@@ -2,6 +2,7 @@
 include_once('templates-admin/header-login.php');
 ?>
 
+<link rel="stylesheet" href="../CSS/login.css"> 
 <div class="main-content">
     <div class="wrapper">
         <div class="container-fluid h-custom col-lg-12 col-xl-11 m-4">
@@ -52,8 +53,9 @@ include_once('templates-admin/header-login.php');
                                     }
                                                                     
                                 ?>
-                                
-                            <button type="submit" name="login" class="btn btn-primary btn-lg">Đăng nhập</button>
+                            <div class="wrap">  
+                                <button type="submit" name="login" class="button-login">Đăng nhập</button>
+                            </div>
                             <p class="small fw-bold mt-2 pt-1 mb-0">Bạn chưa có tài khoản? <a href="register.php"class="link-danger">Đăng ký</a></p>
                         </div>
 

@@ -55,7 +55,8 @@ include_once('templates-admin/header-login.php');
                             </div>
 
                             <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                <button type="submit" class="btn btn-primary" name="signup">Đăng ký</button>
+                          
+                                <button class="glow-on-hover" type="submit" name="signup">Đăng Ký</button>
                             </div>
 
                         </form>
