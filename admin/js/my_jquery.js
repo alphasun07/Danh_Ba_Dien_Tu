@@ -3,15 +3,18 @@ $(document).ready(function(){
    //e: đối tg gửi đi sự kiện
    var newFileName = '';//biến để đổi tên khởi tạo 1 biến ms
    var id = $('#userid').text();//lấy ra id của nhân viên
+
    $('#form_avatar').on('submit',function(e){
       e.preventDefault();//ngắn k cho gửi đi method post
+
+      //khởi tạo biến để đổi tên file 
       var dt = new Date();
-
       var filename = new FormData(this);
-
       newFileName = id + String(dt.getFullYear()) + String(dt.getMonth()+1) + String(dt.getDate()) + String(dt.getHours()) + String(dt.getMinutes()) + String(dt.getSeconds()) + "." + filename.get('file_image').name.split('.').pop().toLowerCase();
      
       filename.append('submit',''); //theem 1 submit vào data
+
+      //để thêm dữ liệu gửi đi
       filename.append('newFileName',newFileName);
 
       $.ajax({

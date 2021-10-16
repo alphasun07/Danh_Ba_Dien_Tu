@@ -53,15 +53,15 @@ if(mysqli_num_rows($query_1)>0){
                 </ul>
                 
                     <form action="update-profile.php" method="POST" enctype="multipart/form-data" id="form_avatar">
-                    <div class="row justify-content-center align-items-center w-100 m-auto rounded" style="background-color:#e4e4e4;">
-                        <div class="col-8 ps-4" style="font-weight: 600; color: #223035; font-size:16px; line-height: 16px;"> Chọn ảnh đại diện:</div>
-                        <div class="col-4 file-upload">
-                            <input type="file" name="file_image" />
-                            <i class="fa fa-arrow-up"></i>
+                        <div class="row justify-content-center align-items-center w-100 m-auto rounded" style="background-color:#e4e4e4;">
+                            <div class="col-8 ps-4" style="font-weight: 600; color: #223035; font-size:16px; line-height: 16px;"> Chọn ảnh đại diện:</div>
+                            <div class="col-4 file-upload">
+                                <input type="file" name="file_image" />
+                                <i class="fa fa-arrow-up"></i>
+                            </div>
                         </div>
-                    </div>
-                        <!-- <input type="file" class="custom-file-upload"  > -->
-                        <button type="submit" class="btn btn-outline-primary mt-2 btn-rounded rounded-pill w-100" data-mdb-ripple-color="dark" name = "submit">Cập nhật ảnh</button>
+                            <!-- <input type="file" class="custom-file-upload"  > -->
+                            <button type="submit" class="btn btn-outline-primary mt-2 btn-rounded rounded-pill w-100" data-mdb-ripple-color="dark" name = "submit">Cập nhật ảnh</button>
                     </form>
                 
                </div>
@@ -194,7 +194,7 @@ if(mysqli_num_rows($query_1)>0){
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
 								<input type="submit" name="up-profile" class="btn btn-primary px-3 mt-2" value="Lưu thay đổi">
-
+                                
                             </div>
                         </div>
                     </form>

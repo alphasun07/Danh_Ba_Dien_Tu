@@ -59,8 +59,8 @@ include('templates-admin/header.php')
             </div>
             <div class="col-md-9">
               <a class="btn btn-primary m-3" href="them.php" role="button">Thêm mới</a>
-
-                <table class="table table-success table-striped">
+                <div id="table">
+                  <table class="table table-success table-striped">
                     <thead>
                       <tr>
                         <th scope="col">STT</th>
@@ -104,26 +104,54 @@ include('templates-admin/header.php')
                       }
                     ?>
                     </tbody>
-                  </table>
+                </table>
+                </div>
+                
             </div>
            
           </div>
 
           <!-- nhập file -->
-          <form action="import-export.php" method="POST" enctype="multipart/form-data">             
-            <input type="file" name="file_import" >   
-            <!-- <input type="file" class="custom-file-upload"  > -->
-            <button type="submit" class="btn btn-outline-primary mt-2 btn-rounded rounded-pill" data-mdb-ripple-color="dark" name = "sub-import">Nhập file</button>
-          </form>
+                <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary w-25" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Nhập file
+          </button>
             
           <!-- xuất file -->
           <form action="import-export.php" method="POST" enctype="multipart/form-data" >             
             <button type="submit" class="btn btn-outline-primary mt-2 btn-rounded rounded-pill" data-mdb-ripple-color="dark" name = "sub-export">Xuất file</button>
           </form>
       </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <form action="import-export.php" method="POST" enctype="multipart/form-data" id="form_import" name="form_import">             
+                  <input type="file" name="file_import" >   
+
+                  <!-- <input type="file" class="custom-file-upload"  > -->
+                  <button type="submit" class="btn btn-outline-primary mt-2 btn-rounded rounded-pill" data-mdb-ripple-color="dark" name = "preview">Nhập file</button>
+              </form>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary"data-bs-dismiss="modal" name="sub-import">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
 <?php
 include('templates-admin/footer.php')
 ?>
+<script src="js/import.js"></script>
+
+
 <script>
   var toggler = document.getElementsByClassName("caret");
   var i;
