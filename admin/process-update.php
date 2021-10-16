@@ -3,7 +3,6 @@
     $manv=$_SESSION['manv'];
 
     include("../config/constants.php");
-   
 
    if(isset ($_GET['update']))
    {
@@ -27,7 +26,6 @@
         if((mysqli_query($conn, $sql))==TRUE)
         {
             $_SESSION['update']="<div class='text-success'>Sửa nhân viên thành công.</div>";
-
             header('location:' .SITEURL. 'admin/index.php');
         }
         else
@@ -38,9 +36,6 @@
         }
 
         mysqli_close($conn);
-    
-
-
 
    }
 ?>

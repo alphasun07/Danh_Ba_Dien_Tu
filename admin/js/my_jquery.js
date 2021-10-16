@@ -1,28 +1,28 @@
 $(document).ready(function(){
    //select form có id -> bắt sự kiện submit của form đấy -> thục hiện function
    //e: đối tg gửi đi sự kiện
-   var newFileName = '';
-   var id = $('#userid').text();
+   var newFileName = '';//biến để đổi tên khởi tạo 1 biến ms
+   var id = $('#userid').text();//lấy ra id của nhân viên
    $('#form_avatar').on('submit',function(e){
       e.preventDefault();//ngắn k cho gửi đi method post
       var dt = new Date();
 
-      var data = new FormData(this);
-      newFileName = id + String(dt.getFullYear()) + String(dt.getMonth()+1) + String(dt.getDate()) + String(dt.getHours()) + String(dt.getMinutes()) + String(dt.getSeconds()) + "." + data.get('file_image').name.split('.').pop().toLowerCase();
+      var filename = new FormData(this);
+
+      newFileName = id + String(dt.getFullYear()) + String(dt.getMonth()+1) + String(dt.getDate()) + String(dt.getHours()) + String(dt.getMinutes()) + String(dt.getSeconds()) + "." + filename.get('file_image').name.split('.').pop().toLowerCase();
      
-      data.append('submit',''); //theem 1 submit vào data
-      data,append('newFileName',newFileName);
+      filename.append('submit',''); //theem 1 submit vào data
+      filename.append('newFileName',newFileName);
 
       $.ajax({
          url: 'update-profile.php',
          method: 'POST',
          type: 'POST',
-         data: data,
-         cache: false,
+         data: filename,
          processData: false,
          contentType: false,
          success: function(){
-            $('#anh2').attr('src','images/'+data.get('file_image').name);
+            $('#anh2').attr('src','images/'+newFileName);
          }
       })
 
