@@ -15,7 +15,7 @@
                 if(mysqli_num_rows($res1)>0){
                     $row1 = mysqli_fetch_assoc($res1);
                 }
-                $sql2 = "SELECT * from db_nhanvien where email='$getData[4]'";
+                $sql2 = "SELECT * from db_nhanvien where email='$getData[4]'";//ktra email đã tồn tại trên DB hay chưa
                 $res2 = mysqli_query($conn, $sql2);
                 if(mysqli_num_rows($res2)==0){
                     

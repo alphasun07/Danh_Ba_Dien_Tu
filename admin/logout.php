@@ -1,10 +1,8 @@
 <?php
-  ob_start();
-session_start();
+  include('../config/constants.php');
 
-if(isset($_SESSION['login'])){
-    unset($_SESSION['login']);
-    header('location:'.SITEURL.'login.php');
-}
+    unset($_SESSION['user']);
+    header('location:'.SITEURL.'admin/login.php');
+
 
 ?>

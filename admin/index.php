@@ -49,7 +49,7 @@ include('templates-admin/header.php')
                       <li><a href="qldv.php"><i class="bi bi-folder">Tất cả đơn vị</i></a></li>
                       <li><a href="#"><i class="bi bi-folder">Khoa</i></a></li>
                       <li><a href="#"><i class="bi bi-folder">Bộ môn</i></a></li>  
-                      <li><a href=""><i class="bi bi-folder">Phòng ban</i></a></li>
+                      <li><a href="#"><i class="bi bi-folder">Phòng ban</i></a></li>
                     </ul>
                   </li>
                 </ul>
@@ -128,20 +128,22 @@ include('templates-admin/header.php')
         <div class="modal-dialog modal-xl">
           <div class="modal-content">
             <div class="modal-header">
+
+              <!--up file  -->
               <form action="import-export.php" method="POST" enctype="multipart/form-data" id="form_import" name="form_import">             
                   <input type="file" name="file_import" >   
 
                   <!-- <input type="file" class="custom-file-upload"  > -->
-                  <button type="submit" class="btn btn-outline-primary mt-2 btn-rounded rounded-pill" data-mdb-ripple-color="dark" name = "preview">Nhập file</button>
+                  <button type="submit" class="btn btn-outline-primary mt-2 btn-rounded rounded-pill" data-mdb-ripple-color="dark" name = "preview">Xem trước tệp</button>
               </form>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              
             </div>
+            <!-- btn hủy và lưu -->
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary"data-bs-dismiss="modal" name="sub-import">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+              <button type="button" class="btn btn-primary"data-bs-dismiss="modal" name="sub-import">Lưu</button>
             </div>
           </div>
         </div>

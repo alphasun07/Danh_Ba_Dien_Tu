@@ -8,7 +8,7 @@ include('templates-admin/header.php');
             <h2>Thêm</h2>
         </div>
 
-  <!-- sửa -->
+  <!-- thêm -->
         <div class="container col-md-12 mx-auto">
             <form action="process-add.php" METHOD="POST">
                 <div class="col-md-6 mx-auto">

@@ -1,5 +1,8 @@
 <?php
 include('templates-admin/header.php');
+// $manv=$_SESSION['manv'];
+//chỉ cần $manv=$_GET['manv'];
+
 $_SESSION['manv'] = $_GET['manv'];
 ?>
 

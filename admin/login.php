@@ -93,8 +93,7 @@ include_once('templates-admin/header-login.php');
                 //nếu khớp thì > login thành công > chuyenr vào trang index
 
                 //cấp thẻ bài
-                
-              
+                 
                 $_SESSION['login']= "<div class='text-success'>Đăng nhập thành công.</div>";
                 $_SESSION['user']=$email;
                 header("Location: index.php");
@@ -102,17 +101,17 @@ include_once('templates-admin/header-login.php');
             }
             elseif($row['STATUS']==0){
                 $_SESSION['login']="<div class='text-danger'>Tài khoản chưa được kích hoạt</div>";
-                header("Location:login.php");
+                header("Location:".SITEURL."admin/login.php");
             }
             
             else{
                 $_SESSION['login']="<div class='text-danger'>Sai mật khẩu</div>";
-                header("Location:login.php");
+                header("Location:".SITEURL."admin/login.php");
             }
         }
         else{
             $_SESSION['login']="<div class='text-danger'>Sai Email</div>";
-            header("Location:login.php");
+            header("Location:".SITEURL."admin/login.php");
 
         }
 

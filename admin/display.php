@@ -7,7 +7,7 @@ if(isset($_POST["preview"])){
     {      
         $file = fopen($filename, "r");
         ?>
-        <table>
+        <table class="table table-secondary table-striped table-bordered">
             <thead>
                 <tr>
                     <th scope="col">STT</th>

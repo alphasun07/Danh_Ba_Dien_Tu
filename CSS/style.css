@@ -40,7 +40,7 @@ ul, #myUL {
     display: block;
   }
 
- /* #myUL .caret.closed {
+.tree-view ul li ul li {
     display: block;
     padding: .2em .2em .2em .4em;
     margin-right: 0;
@@ -48,7 +48,7 @@ ul, #myUL {
     border-bottom-left-radius: .3em
 }
 
-.tree-view ul .caret.closed:hover {
+.tree-view ul .caret.nested:hover {
     background-color: #8cb9ff
 }
 
@@ -65,9 +65,10 @@ ul, #myUL {
 
 .tree-view .caret.open span {
     color: #f8f9fa
-} */
+}
 
 
 #myUL .nested li a{
   text-decoration: none;
+  padding: 10px;
 }
